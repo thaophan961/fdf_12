@@ -71,6 +71,15 @@
       <%= t ".no_product" %>
     <% end %>
   </h2>
+<%= form_tag update_multiple_dashboard_shop_path, method: "get" do %>
+  <div class="edit_time">
+    Start hour:
+    <%= time_select :start_hour,  minute_step: 5 %>
+    End hour:
+    <%= time_select :end_hour,  minute_step: 5 %>
+    <%= submit_tag "Submit" , class: "btn btn_edit_time" %>
+  </div>
+<% end %>
   <div class="col-md-12">
     <%= render "products" if @products.any? %>
   </div>

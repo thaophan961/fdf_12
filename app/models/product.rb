@@ -54,4 +54,12 @@ class Product < ApplicationRecord
       end
     end
   end
+
+  def price_modification
+    start_hour
+  end
+
+  def price_modification=(new_start_hour)
+    self.start_hour = new_start_hour
+  end
 end
