@@ -37,6 +37,14 @@ class Product < ApplicationRecord
   scope :by_active, ->{where status: :active}
   scope :top_products, -> do
     by_active.by_date_newest.limit Settings.index.max_products
+  scope :by_shop, -> id {where shop_id: id if id.present?}
+  end
+
+  def self.update_multi  shopid, starttime, endtime
+    Product.by_shop(shopid).each do |product|
+      product.start_hour = starttime
+      product.end_hour = endtime
+    end
   end
 
   private
@@ -53,5 +61,13 @@ class Product < ApplicationRecord
         errors.add :start_hour, I18n.t("error_message_time")
       end
     end
+  end
+
+  def price_modification
+    start_hour
+  end
+
+  def price_modification=(new_start_hour)
+    self.start_hour = new_start_hour
   end
 end
