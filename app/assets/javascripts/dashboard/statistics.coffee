@@ -5,3 +5,7 @@ $(document).ready ->
 
   $('.timepicker').datetimepicker
     timepicker: true
+
+  $('.datepicker').datetimepicker
+    timepicker: false,
+    format: 'm/d/Y'

@@ -19,7 +19,6 @@ Rails.application.routes.draw do
   namespace :dashboard do
     root "statistics#index", path: "/"
     resources :shops do
-      get :update_multiple, on: :member
       resources :products
       resources :orders
       resources :shop_managers, only: [:index, :create, :destroy]

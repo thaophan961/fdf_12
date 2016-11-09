@@ -1,5 +1,31 @@
 <div class="container">
   <h2><%= t ".title" %></h2>
+  <div class="search_between">
+    <div class="row">
+      <%= form_tag dashboard_shop_order_managers_path, method: :get do |f| %>
+        <div class="col-md-1">
+          <%= label_tag :start_date, t(".start_date"), class: "text-info" %>
+        </div>
+        <div class="col-md-2">
+          <%= text_field_tag :start_date, params[:start_date],
+            class: "form-control datepicker",
+            placeholder: t("time.formats.date_format") %>
+        </div>
+        <div class="col-md-1">
+          <%= label_tag :end_date, t(".end_date"), class: "text-info" %>
+        </div>
+        <div class="col-md-2">
+          <%= text_field_tag :end_date, params[:end_date],
+            class: "form-control datepicker",
+            placeholder: t("time.formats.date_format") %>
+        </div>
+        <div class="col-md-2">
+            <%= submit_tag t(".btn_search"), class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <br>
   <ul class="nav nav-tabs">
     <li class="active">
       <a data-toggle="tab" href="#done"><%= t ".done_orders" %></a>
@@ -12,8 +38,8 @@
     <div id="done" class="tab-pane fade in active">
       <div class="well">
         <div class="panel-group">
-          <% if @products_done.present? %>
-            <%= render "product", products: @products_done %>
+          <% if @order_products_done.present? %>
+            <%= render "order_product", order_products: @order_products_done %>
           <% else %>
             <span class="text-danger"><%= t ".not_products" %></span>
           <% end %>
@@ -23,8 +49,8 @@
     <div id="reject" class="tab-pane fade">
       <div class="well">
         <div class="panel-group">
-          <% if @products_reject.present? %>
-            <%= render "product", products: @products_reject %>
+          <% if @order_products_reject.present? %>
+            <%= render "order_product", order_products: @order_products_reject %>
           <% else %>
             <span class="text-danger"><%= t ".not_products" %></span>
           <% end %>

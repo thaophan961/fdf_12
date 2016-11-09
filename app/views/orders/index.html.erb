@@ -1,12 +1,43 @@
+<div class="search_between">
+  <div class="row">
+    <%= form_tag orders_path, method: :get do %>
+      <div class="col-md-1">
+        <%= label_tag :start_date, t(".start_date"), class: "text-info" %>
+      </div>
+      <div class="col-md-2">
+        <%= text_field_tag :start_date, params[:start_date],
+          data: {date_format: Settings.date_format},
+          class: "form-control datetimepicker",
+          placeholder: Settings.date_format %>
+      </div>
+      <div class="col-md-1">
+        <%= label_tag :end_date, t(".end_date"), class: "text-info" %>
+      </div>
+      <div class="col-md-2">
+        <%= text_field_tag :end_date, params[:end_date],
+          data: {date_format: Settings.date_format},
+          class: "form-control datetimepicker",
+          placeholder: Settings.date_format %>
+      </div>
+      <div class="col-md-2">
+        <%= submit_tag t("btn_search"), class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>
 <div class="page-content">
   <div class="container">
-    <div class="row">
-      <% @order_days.sort.each do |day, orders|  %>
-        <h3><dt><%= t "order_day" %>: <%= I18n.localize day, format: :short_date %></dt></h3>
-        <% orders.each do |order| %>
-          <%= render "list", order: order %>
+    <% if @order_days.any? %>
+      <div class="row">
+        <% @order_days.sort.each do |day, orders|  %>
+          <h3><dt><%= t "order_day" %>: <%= I18n.localize day, format: :short_date %></dt></h3>
+          <% orders.each do |order| %>
+            <%= render "list", order: order %>
+          <% end %>
         <% end %>
-      <% end %>
-    </div>
+      </div>
+    <% else %>
+      <h3><%= t("have_no_order") %></h3>
+    <% end %>
   </div>
 </div>

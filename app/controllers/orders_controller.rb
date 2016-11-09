@@ -5,8 +5,13 @@ class OrdersController < ApplicationController
   before_action :load_order_update, only: :update
 
   def index
-    @orders = current_user.orders.by_date_newest.page(params[:page])
-      .per Settings.common.per_page
+    if params[:start_date].present? && params[:end_date].present?
+      @orders = current_user.orders.between_date params[:start_date],
+        params[:end_date]
+    else
+      @orders = current_user.orders.on_today.by_date_newest.page(params[:page])
+        .per Settings.common.per_page
+    end
     @order_days = @orders.group_by{|t| t.created_at.beginning_of_day}
   end
 

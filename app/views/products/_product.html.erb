@@ -4,14 +4,12 @@
       <%= link_to product do %>
         <%= image_tag product.image.url, class: "image-shop" %>
       <% end %>
-      <% if Time.now.is_between_short_time? product.start_hour,
-          product.end_hour %>
-        <h3> <%= t "cart.order_time_text" %>
+        <h4><strong><i>
+          <%= t "cart.order_time_text" %>
           <%= l product.start_hour, format: :short_time %>
           <%= t "split" %>
           <%= l product.end_hour, format: :short_time %>
-        </h3>
-      <% end %>
+        </i></strong></h4>
     </div>
   </div>
   <div class="description_area row">

@@ -1,5 +1,5 @@
-class Dashboard::ShopsController < BaseDashboardController
-  before_action :load_shop, only: [:show, :edit, :update, :update_multiple]
+class Dashboard::ShopsController < ApplicationController
+  before_action :load_shop, only: [:show, :edit, :update]
 
   def new
     @shop = current_user.own_shops.build
@@ -16,26 +16,29 @@ class Dashboard::ShopsController < BaseDashboardController
     end
   end
 
-  def update_multiple
-    time_start = params[:start_hour]
-    time_end = params[:end_hour]
-    time_start_converted = Time.now.
-      change({ hour: time_start["{:minute_step=>5}(4i)"].to_i,
-      min: time_start["{:minute_step=>5}(5i)"].to_i, sec: 0 })
-    time_end_converted = Time.now.
-      change({ hour: time_end["{:minute_step=>5}(4i)"].to_i,
-      min: time_end["{:minute_step=>5}(5i)"].to_i, sec: 0 })
-
-    sql = "UPDATE `products` SET `start_hour` =' #{time_start_converted.strftime("%I:%M:00")}', `end_hour` = '#{time_end_converted.strftime("%I:%M:00")}' WHERE "
-    records_array = ActiveRecord::Base.connection.execute(sql)
-    flash[:notice] = "Updated products!"
-    redirect_to  dashboard_shop_path @shop
-  end
-
   def show
     @shop = @shop.decorate
     @products = @shop.products.page(params[:page])
       .per Settings.common.products_per_page
+    if params[:start_hour].present? and params[:end_hour].present?
+      time_start = params[:start_hour]
+      time_end = params[:end_hour]
+      time_start_converted = Time.now.
+        change({ hour: time_start["{:minute_step=>5}(4i)"].to_i,
+        min: time_start["{:minute_step=>5}(5i)"].to_i, sec: 0 })
+      time_end_converted = Time.now.
+        change({ hour: time_end["{:minute_step=>5}(4i)"].to_i,
+        min: time_end["{:minute_step=>5}(5i)"].to_i, sec: 0 })
+      time_start_formated = time_start_converted.strftime Settings.format_time
+      time_end_formated = time_end_converted.strftime Settings.format_time
+      if compare_time time_start_formated, time_end_formated
+        Product.update_multi @shop.id, time_start_formated, time_end_formated
+        flash[:success] = t "flash.success_message"
+      else
+        flash[:danger] = t "flash.danger_message"
+      end
+        redirect_to  dashboard_shop_path @shop
+    end
   end
 
   def index

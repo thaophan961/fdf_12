@@ -44,4 +44,8 @@ module ApplicationHelper
   def format_price price
     price.to_i.to_s + t("cart.vnd")
   end
+
+  def compare_time time_start, time_end
+    time_end > time_start
+  end
 end

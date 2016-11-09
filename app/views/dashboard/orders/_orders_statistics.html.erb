@@ -4,7 +4,7 @@
       <button class="list btn btn-primary btn-action btnPrev step1" id="tab-2" href="#step1" data-toggle="tab">
         <%= t "order_statistics.back"%>
       </button>
-      <% if @products.any? %>
+      <% if @accepted_order_products.any? %>
         <%= link_to t("order_statistics.done"),
           dashboard_shop_order_products_path(@shop.id),
          class: "list btn btn-success btn-action pull-right" %>
@@ -25,8 +25,8 @@
           </tr>
         </thead>
         <tbody>
-          <% if @products.present? %>
-            <%= render partial: "product", collection: @products %>
+          <% if @accepted_order_products.present? %>
+            <%= render partial: "accepted_order_product", collection: @accepted_order_products %>
           <% else %>
             <tr>
               <td colspan="4", class="text-danger text-center">

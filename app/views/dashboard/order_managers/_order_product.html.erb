@@ -1,4 +1,4 @@
-<% products.each do |key, value| %>
+<% order_products.each do |key, value| %>
   <div class="panel panel-default">
     <div class="panel panel-default">
       <div class="panel-body">
@@ -20,18 +20,26 @@
           </tr>
         </thead>
         <tbody>
-          <% value.each_with_index do |product, index| %>
+          <% value.each_with_index do |order_product, index| %>
             <tr>
               <td><%= increase_one index %></td>
-              <td><%= product.name %></td>
-              <td class="text-center"><%= product.quantity %></td>
+              <td>
+                <%= link_to order_product.name,
+                  dashboard_shop_product_path(order_product.product.shop_id,
+                  order_product.product.id, order_product_id: order_product.id)%>
+              </td>
+              <td class="text-center"><%= order_product.quantity %></td>
               <td class="text-center">
-                <strong><%= format_price product.price %></strong>
+                <strong><%= format_price order_product.price %></strong>
               </td>
             </tr>
           <% end %>
         </tbody>
       </table>
+      <strong>
+        <%= t "order_statistics.total_price" %>
+        <%= format_price value.sum &:price %>
+      </strong>
     </div>
   </div>
 <% end %>

@@ -39,6 +39,15 @@ class Product < ApplicationRecord
     by_active.by_date_newest.limit Settings.index.max_products
   end
 
+  def self.update_multi  shopid, starttime, endtime
+    products = where(shop_id: shopid)
+    products.each do |product|
+      product.start_hour = starttime
+      product.end_hour = endtime
+      product.save
+    end
+  end
+
   private
   def image_size
     max_size = Settings.pictures.max_size

@@ -28,7 +28,7 @@ class Order < ApplicationRecord
   end
 
   scope :between_date, -> begin_date, end_date do
-    where(created_at: begin_date..end_date).
+    where("date(created_at) BETWEEN ? AND ?", begin_date, end_date).
       group_year.group_month.group_day
   end
 

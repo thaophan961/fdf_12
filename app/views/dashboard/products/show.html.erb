@@ -1,9 +1,9 @@
 <div class="container">
   <div class="panel panel-default">
     <div class="panel-body"><h2><%= @product.name %></h2></div>
-    <table class="table">
+    <table class="table table-bordered">
       <thead>
-        <tr class="info">
+        <tr>
           <th><%= t "dashboard.product.show.name" %></th>
           <th><%= t "dashboard.product.show.quantity" %></th>
           <th><%= t "dashboard.product.show.price" %></th>
@@ -12,7 +12,7 @@
       </thead>
       <% @order_products.each do |order| %>
         <tbody>
-          <tr class="success">
+          <tr>
             <td>
               <%= order.user_name %>
             </td>
@@ -23,7 +23,8 @@
               <%= @product.price %>
             </td>
             <td>
-              <%= total_price @product.price, order.quantity %>
+              <strong><%= total_price(@product.price, order.quantity).to_i %>
+              <%= t "cart.vnd" %></strong>
             </td>
           </tr>
         </tbody>

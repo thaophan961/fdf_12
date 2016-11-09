@@ -12,7 +12,7 @@ pictures:
 mailer:
   default_mail: "no-reply@fdf-12.herokuapp.com"
 index:
-  max_shops: 5
+  max_shops: 4
   max_products: 8
 comment:
   num_posts: 2
@@ -28,3 +28,5 @@ notification:
 delay_check_order: 1
 max_content_scroll: 3
 count_tag: 0
+order_increase: 1
+format_time: "%H:%M:00"

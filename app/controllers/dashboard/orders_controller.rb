@@ -8,7 +8,7 @@ class Dashboard::OrdersController < BaseDashboardController
       @q = @shop.orders.includes(:user).ransack params[:q]
       @orders = @q.result.includes(:order_products).unfinished.on_today
         .by_date_newest.page(params[:page]).per Settings.common.per_page
-      @products = OrderProduct.order_products_accepted @shop.id
+      @accepted_order_products = OrderProduct.order_products_accepted @shop.id
     end
   end
 

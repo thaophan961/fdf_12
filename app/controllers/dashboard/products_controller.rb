@@ -13,7 +13,20 @@ class Dashboard::ProductsController < BaseDashboardController
   end
 
   def show
-    @order_products = @product.order_products.accepted
+    @order_item = OrderProduct.find_by id: params[:order_product_id]
+    if @order_item
+      case
+      when @order_item.done?
+        @order_products = @product.order_products.doned
+      when @order_item.rejected?
+        @order_products = @product.order_products.rejected
+      else
+        @order_products = @product.order_products.accepted
+      end
+    else
+      flash[:danger] = t "flash.danger.dashboard.product.not_found"
+      redirect_to dashboard_shop_products_path
+    end
   end
 
   def edit
