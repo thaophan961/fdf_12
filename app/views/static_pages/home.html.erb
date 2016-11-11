@@ -84,7 +84,7 @@
 
   <!-- Begin carousel -->
   <div class="col-sm-9">
-    <div id="id_top_products" class="carousel slide" data-ride="carousel">
+    <div id="id_top_products" class="carousel slide margin" data-ride="carousel">
       <div class="carousel-inner" role="listbox">
         <% @shops.each_with_index do |shop, index| %>
           <div class="<%= index == 0 ? 'item active' : 'item' %>">
