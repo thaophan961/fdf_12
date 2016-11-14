@@ -1,5 +1,5 @@
 <div class="row">
-  <h2 class="section_title">
+  <h2 class="section_title center">
     <%= t "common.your_shops" %>
     <div class="btn_view_all_wrapper pull-right">
       <%= link_to t("common.btn_request"), new_dashboard_shop_path,
@@ -7,7 +7,7 @@
     </div>
   </h2>
 </div>
-<div class="col-md-12 magin_top_10px" id="id_shops_list">
+<div class="col-md-12 magin" id="id_shops_list">
   <%= render @shops %>
 </div>
 <%= paginate @shops %>

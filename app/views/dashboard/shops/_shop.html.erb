@@ -1,12 +1,12 @@
 <div class="col-sm-5 block row block-shop-feed-item">
-  <div class="col-md-4">
-    <div class="row thumbnail">
+  <div class="col-md-4 shop_image">
+    <div class="row thumbnail shop_width">
       <%= link_to dashboard_shop_path(shop) do %>
         <%= image_tag shop.avatar.url %>
       <% end %>
     </div>
   </div>
-  <div class="col-md-8">
+  <div class="col-md-8 shop_text">
     <div class="row">
       <h3>
         <%= link_to shop.name, dashboard_shop_path(shop) %>

@@ -1,6 +1,6 @@
 <div class="block-shop-header clearfix">
   <div class="shop-cover">
-    <h2 class="section_title">
+    <h2 class="section_title center">
       <%= @shop.name %>
       <%= link_to t(".edit"), edit_dashboard_shop_path(@shop),
         class: "btn btn-success pull-right" %>
@@ -16,14 +16,15 @@
     <div class="col-md-12 shop-nav-wrapper">
       <div class="row">
         <div class="col-sm-offset-3 col-sm-6">
-          <div class="row shop-basic-info">
+          <div class="row shop-basic-info margin_top_shop">
             <h4 class="title">
               <%= @shop.name %>
               <%= render "shared/shop_status_label", shop: @shop %>
             </h4>
             <h4>
               <%= link_to t("dashboard.order.view_order_list"),
-                dashboard_shop_orders_path(@shop.id), class: "btn btn-theme" %>
+                dashboard_shop_orders_path(@shop.id),
+                class: "btn btn-theme width_btn" %>
               <%= link_to t("dashboard.order.view_history_orders"),
                 dashboard_shop_order_managers_path(@shop.id),
                 class: "btn btn-theme" %>
@@ -31,7 +32,7 @@
           </div>
         </div>
         <div class="col-sm-3">
-          <div class="panel panel-info">
+          <div class="panel panel-info shop_user">
             <div class="panel-heading">
               <%= t "common.shop_managers" %>
             </div>
@@ -52,14 +53,14 @@
       </div>
     </div>
   </div>
-  <div class="col-md-12 description-wrapper">
+  <div class="col-md-12 description-wrapper style_coffee">
     <div class="quote">
       <%= t @shop.description %>
     </div>
   </div>
 </div>
 <div class="row">
-  <h2 class="section_title">
+  <h2 class="section_title margin_left_shop">
     <div class="btn_view_all_wrapper pull-right">
       <%= link_to t("common.create_button"),
         new_dashboard_shop_product_path(@shop),
@@ -71,7 +72,7 @@
       <%= t ".no_product" %>
     <% end %>
   </h2>
-  <div class="col-md-12">
+  <div class="box_pro">
     <%= render "products" if @products.any? %>
   </div>
 </div>

@@ -1,5 +1,5 @@
-<div class="row">
-  <div class="col-sm-3 margin_top">
+<div class="col-sm-12 top_home">
+  <div class="col-sm-3">
     <div class="block-item-list block">
       <h3 class="title">
         <span><%= t "common.categories" %></span>
@@ -84,12 +84,12 @@
 
   <!-- Begin carousel -->
   <div class="col-sm-9">
-    <div id="id_top_products" class="carousel slide margin" data-ride="carousel">
+    <div id="id_top_products" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner" role="listbox">
         <% @shops.each_with_index do |shop, index| %>
           <div class="<%= index == 0 ? 'item active' : 'item' %>">
             <%= image_tag shop.cover_image.url, alt: shop.name %>
-            <div class="carousel-caption">
+            <div class="carousel-caption slide_bottom">
               <h3><%= shop.name %></h3>
               <p><%= shop.description %></p>
             </div>
@@ -112,29 +112,33 @@
 </div>
 
 <div class="row">
-  <h2 class="section_title">
-    <%= t "common.top_shops" %>
-    <div class="btn_view_all_wrapper pull-right">
-      <%= link_to t("common.btn_view_all"), shops_path,
-        class: "btn btn_view_all btn-warning" %>
-    </div>
-  </h2>
-
+  <div class="col-md-12 row-title">
+    <h2 class="section_title">
+      <%= t "common.top_shops" %>
+    </h2>
+  </div>
+  <hr>
   <div class="col-md-12 magin_top_10px" id="id_shops_list">
     <%= render @shops %>
   </div>
+  <div class="btn_view_all_wrapper pull-center">
+    <%= link_to t("common.btn_view_all"), shops_path,
+      class: "btn btn_view_all btn-warning top_shop" %>
+    </div>
 </div>
 
 <div class="row">
-  <h2 class="section_title">
-    <%= t "common.top_products" %>
-    <div class="btn_view_all_wrapper pull-right">
-      <%= link_to t("common.btn_view_all"), products_path,
-        class: "btn btn_view_all btn-warning" %>
-    </div>
-  </h2>
-
+  <div class="col-md-12 row-title">
+    <h2 class="section_title">
+      <%= t "common.top_products" %>
+    </h2>
+  </div>
+  <hr>
   <div class="col-md-12 magin_top_10px" id="id_products_list">
     <%= render @products %>
   </div>
+  <div class="btn_view_all_wrapper pull-center">
+    <%= link_to t("common.btn_view_all"), products_path,
+      class: "btn btn_view_all btn-warning top_shop" %>
+   </div>
 </div>

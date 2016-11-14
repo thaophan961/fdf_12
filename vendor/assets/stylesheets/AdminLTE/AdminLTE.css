@@ -4111,3 +4111,16 @@ table.text-center th {
     white-space: normal!important;
   }
 }
+#id_shops_list .col-sm-12 {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding-top: 15px;
+  padding-bottom: 5px;
+  height: 210px;
+}
+.magin_top_10px .col-sm-3 {
+  padding-right: 0;
+}
+.row-title {
+  padding: 0;
+}

@@ -45,7 +45,7 @@ $orange_main: #ff5722;
   box-shadow: 0 1px 1px rgba(0, 0, 0, .25);
   margin-bottom: 15px;
   border-radius: 3px;
-  margin-left: -18px;
+  margin-left: 30px;
 
   h3.title {
     margin: 0;
@@ -142,20 +142,6 @@ $orange_main: #ff5722;
     margin-right: .25em;
     vertical-align: -.4em;
   }
-}
-
-.section_title {
-  background: url(header_bg.png) $orange_main;
-  font-family: "Roboto Condensed", sans-serif;
-  font-weight: 700;
-  text-align: center;
-  font-size: 25px;
-  padding: 10px;
-  color: #fff;
-  border-radius: 4px;
-  -webkit-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.3);
-  box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.3);
 }
 
 .btn_view_all_wrapper {
@@ -366,7 +352,6 @@ $color_celeste_approx: #ccc;
 }
 .block-shop-header .description-wrapper {
   padding: 0 20px;
-  margin-top: 75px;
   background: $white;
   .quote {
     padding: 1.2em 20px;
@@ -421,4 +406,59 @@ $color_celeste_approx: #ccc;
 }
 a {
   text-decoration: none !important;
+}
+
+.shop_text {
+  margin-top: -7px;
+}
+
+.shop_image {
+  margin-top: 17px;
+}
+
+.shop_width {
+  width: 118%;
+}
+
+.shop_user {
+  margin-right: -16px;
+}
+
+.width_btn {
+  width: 29%;
+}
+
+.top_shop {
+  margin-top: 10px;
+  width: 140px;
+}
+
+.center {
+  text-align: center;
+}
+
+.margin_top_shop {
+  margin-top: 31px;
+}
+
+.style_coffee {
+  width: 104%;
+  margin-left: -25px;
+}
+
+.margin_left_shop {
+  margin-left: 10px;
+}
+
+.box_pro {
+  margin-left: 10px;
+  border: solid;
+  border-width: 1px;
+  border-color: #ccc;
+  width: 98%;
+}
+
+.slide_bottom {
+  width: 96% !important;
+  left: 18px !important;
 }

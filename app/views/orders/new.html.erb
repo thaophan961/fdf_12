@@ -7,14 +7,16 @@
           <div class="col-md-4">
             <%= simple_form_for @order do |f| %>
               <%= f.submit t("create_order"), data: {confirm: t("confirm")},
-                class: "btn btn-primary" %>
+                class: "btn btn-primary margin_order" %>
               <%= hidden_field_tag :shop_id, @shop.id %>
             <% end %>
           </div>
         </div>
         <div class="pull-right">
-          <h4><b><%= t "oder.total" %></b>
-          <%= format_price @cart_shop.total_price %>
+          <h4 class="style_price">
+            <b><%= t "oder.total" %></b>
+            <%= format_price @cart_shop.total_price %>
+            </h4>
         </div>
       </div>
     </div>

@@ -1,28 +1,29 @@
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th><%= t "oder.id" %></th>
-      <th><%= t "oder.name" %></th>
-      <th><%= t "oder.image" %></th>
-      <th><%= t "oder.quantity" %></th>
-      <th><%= t ".status" %></th>
-      <th><%= t "oder.price" %></th>
+      <th class="text-center"><%= t "oder.id" %></th>
+      <th class="text-center"><%= t "oder.name" %></th>
+      <th class="text-center"><%= t "oder.image" %></th>
+      <th class="text-center"><%= t "oder.quantity" %></th>
+      <th class="text-center width_status"><%= t ".status" %></th>
+      <th class="text-center width_price"><%= t "oder.price" %></th>
     </tr>
   </thead>
   <tbody>
     <% order_products.each_with_index do |item, index| %>
       <tr>
-        <td><%= index + 1 %></td>
-        <td><%= item.product.name %></td>
-        <td>
-          <span class="product-thumbnail">
-            <%= image_tag item.product.image.url %>
+        <td class="text-center"><%= index + 1 %></td>
+        <td class="text-center"><%= item.product.name %></td>
+        <td class="width_image">
+          <span>
+            <%= image_tag item.product.image.url, class: "image_box" %>
           </span>
         </td>
         <td class="text-center"><%= item.quantity %></td>
-        <td><%= status_order_product item if item.try(:status).present? %></td>
         <td class="text-center">
-          <strong><%= format_price item.total_price %> </strong></td>
+          <%= status_order_product item if item.try(:status).present? %></td>
+        <td class="right">
+          <strong><%= format_price item.total_price %></strong></td>
       </tr>
     <% end %>
   </tbody>

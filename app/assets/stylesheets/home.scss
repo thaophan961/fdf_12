@@ -144,16 +144,11 @@ $orange_main: #ff5722;
 }
 
 .section_title {
-  background: url(header_bg.png) $orange_main;
-  font-family: "Roboto Condensed", sans-serif;
-  font-weight: 700;
-  text-align: center;
-  padding: 10px;
-  color: #fff;
-  border-radius: 4px;
-  -webkit-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.3);
-  box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.3);
+  font-family: "Source Sans Pro", "Lucida Grande", "HelveticaNeue",
+    "Helvetica", "Arial", sans-serif;;
+  font-weight: 600;
+  margin-bottom: 20px;
+  margin-left: 15px;
 }
 
 .btn_view_all_wrapper {
@@ -339,4 +334,13 @@ $orange_main: #ff5722;
 
 .margin_top {
   margin-top: 10px !important;
+}
+
+.margin_left {
+  margin-left: 60px;
+}
+
+.top_home {
+  width: 110% !important;
+  margin-left: -61px !important;
 }

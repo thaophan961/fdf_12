@@ -146,6 +146,12 @@ div {
 
 hr {
   @extend %extend_2;
+  border-style: inset;
+  border-width: 1px;
+  margin-left: 42px;
+  width: 93%;
+  margin-top: 20px;
+  margin-bottom: 40px;
 }
 
 .a-divider--section {

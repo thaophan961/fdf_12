@@ -1,11 +1,11 @@
 <div class="cart-item-show">
   <% @cart_group.each do |cart| %>
     <div class="panel-body">
-      <div class="col-md-12 magin_top_10px">
+      <div class="col-md-12">
         <% cart[:items].each do |item| %>
-          <div class="col-md-4 col-md-offset-1">
+          <div class="col-md-3">
             <%= image_tag item.product.image.url, class: "image-shop" %>
-            <h4 class="media-heading">
+            <h4 class="media-heading margin_top_cart">
               <%= item.product.name %>
             </h4>
             <div class="media">
@@ -60,11 +60,11 @@
       <div class="row">
         <hr>
         <div class="pull-right">
-          <h3 class="total-cart text-success">
+          <h3 class="total-cart text-success h3_cart">
             <b><%= t ".total" %>:</b> <%= format_price @cart.total_price %>
           </h3>
         </div>
-        <div class="pull-left padding-top-20">
+        <div class="pull-left padding-top-20 margin_cart">
           <% if cart.present? %>
             <%= link_to t("oder.btn_oder"), new_order_path(shop_id: cart[:shop_id]), class: "btn btn-primary" %>
           <% end %>
