@@ -1,4 +1,4 @@
-class Dashboard::ShopsController < BaseDashboardController
+class Dashboard::ShopsController < ApplicationController
   before_action :load_shop, only: [:show, :edit, :update]
   before_action :load_params_update, only: :show
 
@@ -9,6 +9,8 @@ class Dashboard::ShopsController < BaseDashboardController
   def create
     @shop = current_user.own_shops.build shop_params
     if @shop.save
+      message_CW = t "msg_cw_shop"
+      send_chatwork_message message_CW
       flash[:success] = t "flash.success.dashboard.created_shop"
       redirect_to shops_path
     else

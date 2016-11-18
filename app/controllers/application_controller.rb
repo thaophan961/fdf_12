@@ -6,6 +6,14 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :load_events
 
+  require "chatwork"
+
+  def send_chatwork_message message_body
+    ChatWork.api_key = ENV["CHATWORK_API_TOKEN"]
+    room_id = "61175757"
+    ChatWork::Message.create room_id: room_id, body: message_body
+  end
+
   protected
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up) do |user_params|

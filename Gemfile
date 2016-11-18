@@ -36,6 +36,8 @@ gem "ransack"
 gem "daemons"
 gem "delayed_job"
 gem "delayed_job_active_record"
+gem "chatwork"
+
 source "https://rails-assets.org" do
   gem "rails-assets-datetimepicker"
   gem "rails-assets-growl"

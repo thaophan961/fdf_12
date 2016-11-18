@@ -543,3 +543,5 @@ vi:
   language: "Ngôn ngữ: "
   english: "Tiếng Anh"
   vietnam: "Tiếng Việt"
+  msg_cw: "Đơn hàng của bạn đã được thay đổi"
+  msg_cw_shop: "Có một cửa hàng mới"

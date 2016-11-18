@@ -88,6 +88,8 @@ GEM
       json (>= 1.7)
       mime-types (>= 1.16)
     chartkick (2.1.1)
+    chatwork (0.3.1)
+      faraday (~> 0.9.0)
     cloudinary (1.2.3)
       aws_cf_signer
       rest-client
@@ -372,6 +374,7 @@ DEPENDENCIES
   cancancan (= 1.10)
   carrierwave (= 0.10.0)
   chartkick
+  chatwork
   cloudinary
   coffee-rails (~> 4.2)
   config

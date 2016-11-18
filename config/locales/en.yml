@@ -509,3 +509,5 @@ en:
   language: "Language: "
   english: "English"
   vietnam: "Vietnamese"
+  msg_cw: "Your order is changed"
+  msg_cw_shop: "Have a new request shop"
